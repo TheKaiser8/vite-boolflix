@@ -15,7 +15,7 @@ export default {
         }
     },
     methods: {
-        getMovies() {
+        getMoviesAndSeries() {
             axios
                 .get('https://api.themoviedb.org/3/search/movie', {
                     params: {
@@ -28,6 +28,19 @@ export default {
                     console.log(response.data.results);
                     this.store.movies = response.data.results;
                     console.log(this.store.movies);
+                }),
+            axios
+                .get('https://api.themoviedb.org/3/search/tv', {
+                    params: {
+                        api_key: '87b824cd69d9f0f761fc248783d4e988',
+                        language: 'it-IT',
+                        query: this.store.searchText,
+                    }
+                })
+                .then((response) => {
+                    console.log(response.data.results);
+                    this.store.series = response.data.results;
+                    console.log(this.store.series);
                 })
         }
     }
@@ -36,7 +49,7 @@ export default {
 
 <template>
     <div class="container">
-        <AppHeader @search="getMovies" />
+        <AppHeader @search="getMoviesAndSeries" />
         <AppMain/>
     </div>
 </template>

@@ -3,9 +3,12 @@ import { store } from '../store.js';
 
 export default {
     name: 'AppHeader',
+    emits: {
+        search: null,
+    },
     data() {
         return {
-            store
+            store,
         }
     }
 }
@@ -14,7 +17,7 @@ export default {
 <template>
     <h1>Boolflix</h1>
     <form action="" @submit.prevent="$emit('search')">
-        <input type="text" v-model="store.searchText" placeholder="Cerca titolo film">
+        <input type="text" v-model="store.searchText" placeholder="Cerca film o serie tv">
         <button type="submit">Cerca</button>
     </form>
 </template>
