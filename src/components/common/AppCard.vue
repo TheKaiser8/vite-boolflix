@@ -8,6 +8,12 @@
 </script>
 
 <template>
+    <ul>
+        <li>TITOLO</li>
+        <li>TITOLO ORIGINALE</li>
+        <li>LINGUA</li>
+        <li>VOTO</li>
+    </ul>
 </template>
 
 <style lang="scss" scoped>

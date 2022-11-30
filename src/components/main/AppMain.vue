@@ -1,8 +1,8 @@
 <script>
 import { store } from '../../store.js';
 import AppCard from '../common/AppCard.vue';
-import AppCard from '../common/AppCard.vue';
- export default {
+
+export default {
     name: "AppMain",
     components: "AppCard",
     data() {
