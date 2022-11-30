@@ -1,6 +1,6 @@
 <script>
-import { store } from '../../store.js';
-import AppCard from '../common/AppCard.vue';
+import { store } from '../store.js';
+import AppCard from './AppCard.vue';
 
 export default {
     name: "AppMain",
@@ -10,12 +10,14 @@ export default {
             store
         };
     },
-    components: { AppCard }
 }
 </script>
 
 <template>
-    <AppCard/>
+    <AppCard 
+    v-for="movie in store.movies" 
+    :info="movie"
+    />
 </template>
 
 <style lang="scss" scoped>
