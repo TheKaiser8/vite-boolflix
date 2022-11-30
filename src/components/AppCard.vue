@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <ul>
+    <ul class="card-item">
         <li>Titolo: {{ info.title }}</li>
         <li>Titolo originale: {{ info.original_title }}</li>
         <li>Lingua originale: {{ info.original_language }}</li>
@@ -17,4 +17,7 @@
 </template>
 
 <style lang="scss" scoped>
+.card-item {
+    margin: 1rem 0;
+}
 </style>

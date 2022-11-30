@@ -4,7 +4,9 @@ import AppCard from './AppCard.vue';
 
 export default {
     name: "AppMain",
-    components: "AppCard",
+    components: {
+        AppCard
+    },
     data() {
         return {
             store
