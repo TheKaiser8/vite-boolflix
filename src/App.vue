@@ -1,19 +1,25 @@
 <script>
-import AppTitle from './components/AppTitle.vue';
+import axios from 'axios';
+import { store } from '../../store.js';
+import AppHeader from './components/header/AppHeader.vue';
+import AppMain from './components/main/AppMain.vue';
+
 export default {
   components: {
-    AppTitle
-  }
+    AppHeader,
+    AppMain
+  },
+  data() {
+        return {
+            store
+        }
+    },
 }
 </script>
 
 <template>
-  <div class="container">
-    <AppTitle/>
-  </div>
-  <div class="container-small">
-    <AppTitle/>
-  </div>
+  <AppHeader/>
+  <AppMain/>
 </template>
 
 <style lang="scss">
