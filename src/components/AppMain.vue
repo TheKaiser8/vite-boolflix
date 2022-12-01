@@ -55,7 +55,8 @@ export default {
     }
 
     .card-item {
-    margin: 1rem 0;
+        padding: 1.5rem;
+        border-bottom: 1px solid black;
 }
 }
 

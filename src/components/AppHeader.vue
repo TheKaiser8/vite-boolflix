@@ -17,7 +17,7 @@ export default {
 <template>
     <h1>Boolflix</h1>
     <form action="" @submit.prevent="$emit('search')">
-        <input type="text" v-model="store.searchText" placeholder="Cerca film o serie tv">
+        <input type="text" v-model="store.searchText" placeholder="Cerca film o serie tv" required>
         <button type="submit">Cerca</button>
     </form>
 </template>
