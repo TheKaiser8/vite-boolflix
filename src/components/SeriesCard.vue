@@ -32,6 +32,7 @@ import CountryFlag from 'vue-country-flag-next';
 
 <template>
     <ul>
+        <img :src="`https://image.tmdb.org/t/p/w342/${infoSeries.poster_path}`" :alt="infoSeries.name">
         <li>Titolo: {{ infoSeries.name }}</li>
         <li>Titolo originale: {{ infoSeries.original_name }}</li>
         <li>Lingua originale: 

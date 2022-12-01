@@ -32,6 +32,7 @@ import CountryFlag from 'vue-country-flag-next';
 
 <template>
     <ul>
+        <img :src="`https://image.tmdb.org/t/p/w342/${infoMovie.poster_path}`" :alt="infoMovie.title">
         <li>Titolo: {{ infoMovie.title }}</li>
         <li>Titolo originale: {{ infoMovie.original_title }}</li>
         <li>Lingua originale: 

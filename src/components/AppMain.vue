@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <div id="main-page" class="container-small" v-if="(store.movies.length > 0 || store.series.length > 0)">
+    <div id="main-page" v-if="(store.movies.length > 0 || store.series.length > 0)">
         <h3>Risultati trovati per "{{ store.searchText }}"</h3>
         <div class="movies-container">
             <h4>Film trovati ({{ store.movies.length }}):</h4>
