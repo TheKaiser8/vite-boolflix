@@ -26,6 +26,11 @@ import CountryFlag from 'vue-country-flag-next';
             }
             return lang;
         }
+    },
+    computed: {
+        getVote() {
+            return Math.ceil(this.infoSeries.vote_average / 2);
+        }
     }
  }
 </script>
@@ -38,7 +43,7 @@ import CountryFlag from 'vue-country-flag-next';
         <li>Lingua originale: 
             <country-flag :country='getLanguageFlag(infoSeries.original_language)' size='normal'/>
         </li>
-        <li>Media voto: {{ infoSeries.vote_average }}</li>
+        <li>Media voto: {{ getVote }}</li>
     </ul>
 </template>
 
