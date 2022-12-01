@@ -44,6 +44,8 @@ import CountryFlag from 'vue-country-flag-next';
             <country-flag :country='getLanguageFlag(infoMovie.original_language)' size='normal'/>
         </li>
         <li>Media voto: {{ getVote }}</li>
+        <font-awesome-icon icon="fa-solid fa-star" />
+        <font-awesome-icon icon="fa-regular fa-star" />
     </ul>
 </template>
 
