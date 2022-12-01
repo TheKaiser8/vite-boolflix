@@ -12,7 +12,7 @@
         <li>Titolo: {{ infoSeries.name }}</li>
         <li>Titolo originale: {{ infoSeries.original_name }}</li>
         <li>Lingua originale: {{ infoSeries.original_language }}</li>
-        <li>Media voto: {{ infoSeries.voto_average }}</li>
+        <li>Media voto: {{ infoSeries.vote_average }}</li>
     </ul>
 </template>
 
