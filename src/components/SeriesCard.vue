@@ -43,7 +43,12 @@ import CountryFlag from 'vue-country-flag-next';
         <li>Lingua originale: 
             <country-flag :country='getLanguageFlag(infoSeries.original_language)' size='normal'/>
         </li>
-        <li>Media voto: {{ getVote }}</li>
+        <li>Media voto: 
+            <!-- v-for per creare stelle media voto -->
+            <font-awesome-icon v-for="n in getVote" icon="fa-solid fa-star" />
+            <!-- v-for per creare stelle stelle vuote se la media voto è diversa dal massimo (=5: 0 stelle vuote create)-->
+            <font-awesome-icon v-for="n in (5 - getVote)" icon="fa-regular fa-star" />
+        </li>
     </ul>
 </template>
 
