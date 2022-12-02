@@ -1,13 +1,11 @@
 <script>
-import { store } from '../store.js';
-import MovieCard from './MovieCard.vue';
-import SeriesCard from './SeriesCard.vue';
+import { store } from '../../store.js';
+import AppCard from '../common/AppCard.vue';
 
 export default {
     name: "AppMain",
     components: {
-        MovieCard,
-        SeriesCard,
+        AppCard,
     },
     data() {
         return {
@@ -22,17 +20,17 @@ export default {
         <h3>Risultati trovati per "{{ store.searchText }}"</h3>
         <div class="movies-container">
             <h4>Film trovati ({{ store.movies.length }}):</h4>
-            <MovieCard 
+            <AppCard 
             v-for="movie in store.movies" 
-            :infoMovie="movie"
+            :info="movie"
             class="card-item"
             />
         </div>
         <div class="series-container">
             <h4>Serie TV trovate ({{ store.series.length }}):</h4>
-            <SeriesCard 
+            <AppCard 
             v-for="serie in store.series" 
-            :infoSeries="serie"
+            :info="serie"
             class="card-item"
             />
         </div>

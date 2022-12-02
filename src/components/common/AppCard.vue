@@ -2,9 +2,9 @@
 import CountryFlag from 'vue-country-flag-next';
 
  export default {
-    name: "MovieCard",
+    name: "AppCard",
     props: {
-        infoMovie: Object,
+        info: Object,
     },
     components: {
         CountryFlag,
@@ -23,13 +23,25 @@ import CountryFlag from 'vue-country-flag-next';
                 return "cn";
             } else if ( lang === "el") {
                 return "gr";
-            }
+            } else if ( lang === "da") {
+                return "dk";
+            } else if ( lang === "cs") {
+                return "cz";
+            } else if ( lang === "uk") {
+                return "ua";
+            } 
             return lang;
         }
     },
     computed: {
         getVote() {
-            return Math.ceil(this.infoMovie.vote_average / 2);
+            return Math.ceil(this.info.vote_average / 2);
+        },
+        // funzione come variabile per ottenere un placeholder quando non è presente l'immagine copertina
+        posterImage() {
+            return this.info.poster_path 
+            ? `https://image.tmdb.org/t/p/w342/${this.info.poster_path}` 
+            : "https://via.placeholder.com/342x513";
         }
     }
  }
@@ -37,11 +49,11 @@ import CountryFlag from 'vue-country-flag-next';
 
 <template>
     <ul>
-        <img :src="`https://image.tmdb.org/t/p/w342/${infoMovie.poster_path}`" :alt="infoMovie.title">
-        <li>Titolo: {{ infoMovie.title }}</li>
-        <li>Titolo originale: {{ infoMovie.original_title }}</li>
+        <img :src="posterImage" :alt="info.title || info.name">
+        <li>Titolo: {{ info.title || info.name }}</li>
+        <li>Titolo originale: {{ info.original_title || info.original_name }}</li>
         <li>Lingua originale: 
-            <country-flag :country='getLanguageFlag(infoMovie.original_language)' size='normal'/>
+            <country-flag :country='getLanguageFlag(info.original_language)' size='normal'/>
         </li>
         <li>Media voto: 
             <!-- v-for per creare stelle media voto -->
