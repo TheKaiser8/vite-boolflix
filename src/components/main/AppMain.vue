@@ -18,21 +18,25 @@ export default {
 <template>
     <div id="main-page" v-if="(store.movies.length > 0 || store.series.length > 0)">
         <h3>Risultati trovati per "{{ store.searchText }}"</h3>
-        <div class="movies-container">
+        <div class="movies">
             <h4>Film trovati ({{ store.movies.length }}):</h4>
-            <AppCard 
-            v-for="movie in store.movies" 
-            :info="movie"
-            class="card-item"
-            />
+            <div class="row">
+                <AppCard 
+                v-for="movie in store.movies" 
+                :info="movie"
+                class="card-item"
+                />
+            </div>
         </div>
-        <div class="series-container">
+        <div class="series">
             <h4>Serie TV trovate ({{ store.series.length }}):</h4>
-            <AppCard 
-            v-for="serie in store.series" 
-            :info="serie"
-            class="card-item"
-            />
+            <div class="row">
+                <AppCard 
+                v-for="serie in store.series" 
+                :info="serie"
+                class="card-item"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -40,19 +44,18 @@ export default {
 <style lang="scss" scoped>
 #main-page {
     display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: var(--first-text-color);
 
-    .movies-container, .series-container, h3 {
-        width: auto;
-        margin: 2rem;
-    }
-    .movies-container {
-        background-color: lightgreen;
-    }
-    .series-container {
-        background-color: lightblue;
+    .row {
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .card-item {
+        width: calc(100% / 6);
+        height: 100%;
         padding: 1.5rem;
         border-bottom: 1px solid black;
 }

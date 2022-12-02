@@ -33,7 +33,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var(--primary-color);
+    background-color: var( --primary-color);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
     .header-left {
         display: flex;

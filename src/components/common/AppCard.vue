@@ -65,4 +65,8 @@ import CountryFlag from 'vue-country-flag-next';
 </template>
 
 <style lang="scss" scoped>
+img {
+    width: 100%;
+    object-fit: cover;
+}
 </style>
