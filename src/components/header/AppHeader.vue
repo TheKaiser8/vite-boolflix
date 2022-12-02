@@ -15,12 +15,42 @@ export default {
 </script>
 
 <template>
-    <h1>Boolflix</h1>
-    <form action="" @submit.prevent="$emit('search')">
-        <input type="text" v-model="store.searchText" placeholder="Cerca film o serie tv" required>
-        <button type="submit">Cerca</button>
-    </form>
+    <header>
+        <div class="header-left">
+            <strong class="logo">B</strong>
+            <h1>Boolflix</h1>
+        </div>
+        <form action="" @submit.prevent="$emit('search')">
+            <input class="input-text" type="text" v-model="store.searchText" placeholder="Cerca film o serie tv" required>
+            <!-- <button type="submit">Cerca</button> -->
+        </form>
+    </header>
 </template>
 
 <style lang="scss" scoped>
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+
+    .header-left {
+        display: flex;
+        align-items: center;
+
+        .logo, h1 {
+        color: var(--secondary-color);
+        }
+        .logo {
+            margin-right: 1rem;
+        }
+    }
+    .input-text {
+        margin-right: 1rem;
+        border-radius: .625rem;
+        padding: 0.5rem;
+        outline: none;
+    }
+}
 </style>
