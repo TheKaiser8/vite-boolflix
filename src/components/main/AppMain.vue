@@ -73,9 +73,8 @@ main {
     }
     .card-item {
         width: calc(100% / 6);
-        height: 100%;
-        padding: 1.5rem;
-        border-bottom: 1px solid black;
+        margin: 1.5rem 0;
+        border: 1px solid black;
     }
 }
 </style>

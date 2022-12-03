@@ -42,7 +42,7 @@ import CountryFlag from 'vue-country-flag-next';
             return this.info.poster_path 
             ? `https://image.tmdb.org/t/p/w342/${this.info.poster_path}` 
             : "https://via.placeholder.com/342x513";
-        }
+        },
     }
  }
 </script>
@@ -50,23 +50,52 @@ import CountryFlag from 'vue-country-flag-next';
 <template>
     <ul>
         <img :src="posterImage" :alt="info.title || info.name">
-        <li>Titolo: {{ info.title || info.name }}</li>
-        <li>Titolo originale: {{ info.original_title || info.original_name }}</li>
-        <li>Lingua originale: 
-            <country-flag :country='getLanguageFlag(info.original_language)' size='normal'/>
-        </li>
-        <li>Media voto: 
-            <!-- v-for per creare stelle media voto -->
-            <font-awesome-icon v-for="n in getVote" icon="fa-solid fa-star" />
-            <!-- v-for per creare stelle stelle vuote se la media voto è diversa dal massimo (=5: 0 stelle vuote create)-->
-            <font-awesome-icon v-for="n in (5 - getVote)" icon="fa-regular fa-star" />
-        </li>
+        <div class="info-card">
+            <li>Titolo: {{ info.title || info.name }}</li>
+            <li>Titolo originale: {{ info.original_title || info.original_name }}</li>
+            <li>Lingua originale: 
+                <country-flag :country='getLanguageFlag(info.original_language)' size='normal'/>
+            </li>
+            <li>Media voto: 
+                <!-- v-for per creare stelle media voto -->
+                <font-awesome-icon v-for="n in getVote" icon="fa-solid fa-star" />
+                <!-- v-for per creare stelle stelle vuote se la media voto è diversa dal massimo (=5: 0 stelle vuote create)-->
+                <font-awesome-icon v-for="n in (5 - getVote)" icon="fa-regular fa-star" />
+            </li>
+            <li class="overview" v-if="info.overview != ''">Descrizione: {{ info.overview }}</li>
+        </div>
     </ul>
 </template>
 
 <style lang="scss" scoped>
-img {
-    width: 100%;
-    object-fit: cover;
+ul {
+    position: relative;
+    cursor: pointer;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    .info-card {
+        display: none;
+        position: absolute;
+        padding: 1.5rem;
+        top: 0;
+        left: 0;
+
+        &.overview {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    &:hover .info-card {
+        display: block;
+    }
+
+    &:hover img {
+        filter: opacity(0.3);
+    }
 }
 </style>

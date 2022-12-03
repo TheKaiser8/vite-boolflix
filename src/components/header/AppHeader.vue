@@ -33,7 +33,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var( --primary-color);
+    background-color: rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
     left: 0;
