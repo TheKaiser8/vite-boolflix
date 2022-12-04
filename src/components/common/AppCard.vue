@@ -72,6 +72,7 @@ ul {
     position: relative;
     cursor: pointer;
 
+
     img {
         max-width: 100%;
         max-height: 100%;
@@ -84,8 +85,11 @@ ul {
         padding: 1.5rem;
         top: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
 
-        &.overview {
+        .overview {
             overflow: hidden;
             text-overflow: ellipsis;
         }
