@@ -51,18 +51,18 @@ import CountryFlag from 'vue-country-flag-next';
     <ul>
         <img :src="posterImage" :alt="info.title || info.name">
         <div class="info-card">
-            <li>Titolo: {{ info.title || info.name }}</li>
-            <li>Titolo originale: {{ info.original_title || info.original_name }}</li>
-            <li>Lingua originale: 
+            <li><strong>Titolo: </strong>{{ info.title || info.name }}</li>
+            <li><strong>Titolo originale: </strong>{{ info.original_title || info.original_name }}</li>
+            <li><strong>Lingua originale: </strong> 
                 <country-flag :country='getLanguageFlag(info.original_language)' size='normal'/>
             </li>
-            <li>Media voto: 
+            <li><strong>Media voto: </strong> 
                 <!-- v-for per creare stelle media voto -->
-                <font-awesome-icon v-for="n in getVote" icon="fa-solid fa-star" />
+                <font-awesome-icon v-for="n in getVote" icon="fa-solid fa-star" class="gold-icon" />
                 <!-- v-for per creare stelle stelle vuote se la media voto è diversa dal massimo (=5: 0 stelle vuote create)-->
                 <font-awesome-icon v-for="n in (5 - getVote)" icon="fa-regular fa-star" />
             </li>
-            <li class="overview" v-if="info.overview != ''">Descrizione: {{ info.overview }}</li>
+            <li class="overview" v-if="info.overview != ''"><strong>Descrizione: </strong> {{ info.overview }}</li>
         </div>
     </ul>
 </template>
@@ -71,7 +71,7 @@ import CountryFlag from 'vue-country-flag-next';
 ul {
     position: relative;
     cursor: pointer;
-
+    list-style: none;
 
     img {
         max-width: 100%;
@@ -89,9 +89,20 @@ ul {
         right: 0;
         overflow: hidden;
 
-        .overview {
-            overflow: hidden;
+        li {
+            margin-bottom: .5rem;
+
+            .gold-icon {
+                color: gold;
+            }
+            &.overview {
+            max-height: 18rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 14;
+            -webkit-box-orient: vertical;
+            overflow-y: hidden;
             text-overflow: ellipsis;
+        }
         }
     }
     &:hover .info-card {
